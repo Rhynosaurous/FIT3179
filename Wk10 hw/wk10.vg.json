@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Deaths by risk factor",
+
+    "width": 700,
+    "height": 500,
+    "params": [{
+        "name": "Year_selection",
+        "value": 2019,
+        "bind": {
+          "input": "range",
+          "min": 1990,
+          "max": 2019,
+          "step": 1,
+          "name": "Year: "
+        }
+      }    
+    ],
+
+    "data" : {"url" : "number-of-deaths-by-risk-factor.csv"},
+    "transform": [{"filter": "datum.year == 2000"}],
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Country", "type": "ordinal"
+      },
+      "x": {
+        "aggregate": "sum", "field": "Deaths - Cause: All causes - Risk: Outdoor air pollution - OWID - Sex: Both - Age: All Ages (Number)", "type": "quantitative",
+        "axis": {"title": "population"}
+      }
+    }
+  }
