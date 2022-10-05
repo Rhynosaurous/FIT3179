@@ -21,7 +21,7 @@
     ],   
       "layer":[{
         "data": {
-          "url": "world_topoj.topojson",      
+          "url": "https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk9HW/world_topoj.topojson",      
           "format": {
                 "type": "topojson",
                 "feature": "custom.geo"
@@ -38,13 +38,13 @@
         },
         {
           "data": {
-            "url": "share-deaths-unsafe-water.csv"
+            "url": "https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk9HW/share-deaths-unsafe-water.csv"
         },
         "transform": [{
             "lookup": "Country",
             "from": {
             "data": {
-                "url": "world_topoj.topojson",      
+                "url": "https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk9HW/world_topoj.topojson",      
                 "format": {
                       "type": "topojson",
                       "feature": "custom.geo"
