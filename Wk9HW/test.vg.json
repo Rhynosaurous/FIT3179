@@ -1,0 +1,88 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Proportion of Deaths caused by unsanitary water",
+  
+    "projection": {
+      "type": "equalEarth"
+    },
+    "width": 700,
+    "height": 500,
+    "params": [{
+        "name": "Year_selection",
+        "value": 2019,
+        "bind": {
+          "input": "range",
+          "min": 1990,
+          "max": 2019,
+          "step": 1,
+          "name": "Year: "
+        }
+      }    
+    ],   
+      "layer":[{
+        "data": {
+          "url": "world_topoj.topojson",      
+          "format": {
+                "type": "topojson",
+                "feature": "custom.geo"
+              }
+        }, 
+          "transform": [
+            {"calculate": "'Data is not available in ' + datum.properties.name_long", "as": "note"}],
+          "mark": {"type": "geoshape", "fill": "#e6e6e6", "stroke": "white"},
+          "encoding": {
+            "tooltip": {
+              "field": "note"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "share-deaths-unsafe-water.csv"
+        },
+        "transform": [{
+            "lookup": "Country",
+            "from": {
+            "data": {
+                "url": "world_topoj.topojson",      
+                "format": {
+                      "type": "topojson",
+                      "feature": "custom.geo"
+                    }
+            },
+            "key": "properties.name_long"          
+            },
+            "as":"geo"
+            },
+            { "filter": "datum.Year == Year_selection" }        
+        ],
+        "mark": {
+        "type": "geoshape", "stroke": "white"
+        },
+        "encoding": {
+          "shape": {
+        "field": "geo",
+        "type": "geojson"
+      },
+        "color": {
+            "field": "Deaths",
+            "type": "quantitative",
+            "scale": {
+            "type": "threshold",
+            "domain": [0.1, 2, 5, 7, 10], 
+            "range": ["#52CC9D","#43BCA3","#34ABAA","#249BB0","#158AB7","#067ABD"]
+        }
+        },
+        "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": "Deaths", "type": "quantitative", "title": "Proportion of Deaths caused by unsanitary water"}
+            
+        ]
+        }
+  
+        
+      }
+      ]
+
+  
+  }
