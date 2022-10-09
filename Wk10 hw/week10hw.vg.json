@@ -1,0 +1,138 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Improved water sources vs GDP per capita, 2000 - 2020",
+    "data": {
+      "url": "improvedwsvsgdp.csv"
+    },
+    "width": 530,
+    "height": 550,
+    "params": [
+      {
+        "name": "Population_Above",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 100000000,
+          "step": 1000000,
+          "name": "Minimum Population: "
+        }
+      },
+          {
+        "name": "Year_selection",
+        "value": 2000,
+        "bind": {
+          "input": "range",
+          "min": 2000,
+          "max": 2020,
+          "step": 1,
+          "name": "Year: "
+      }
+          },
+      {
+        "name": "Continentselection",
+        "bind": {
+          "input": "select",
+          "options": [
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "labels": [
+            "Show All",
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "name": "Continent Selection: "
+        }
+      }
+    ],
+    "transform": [
+       {"filter": "datum.Year == Year_selection"},
+      {"filter": "datum.Population > Population_Above"},
+      {
+        "filter": "Continentselection == null || datum.Continent == Continentselection"
+      }
+
+    ],
+    "encoding": {
+      "x": {
+        "field": "GDP",
+        "type": "quantitative",
+        "title": "GDP per capita",
+        "axis": {"tickCount": 7},
+        "scale": {"type": "linear","domain":[0,120000]}
+      },
+      "y": {
+        "field": "wat_imp",
+        "type": "quantitative",
+        "title": "Percentage of accessable Improved water (%)",
+        "axis": {"tickCount": 20},
+        "scale": {"type": "log", "domain":[20,110]}
+      }
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "Population",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+              "range": [10, 50, 150, 200, 300, 400]
+            },
+            "legend": {"format": ".1s", "labelAlign":"right"}
+          },
+          "color": {
+            "field": "Continent",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+              ],
+              "range": [
+                "#ff5630",
+                "#ffab00",
+                "#36b37e",
+                "#00b8d9",
+                "#6554c0",
+                "#a65628"
+              ]
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Continent", "type": "nominal"},
+            {"field": "wat_imp", "type": "quantitative", "format": ".2f"},
+            {"field": "Population", "type": "quantitative", "format": ","},
+            {"field": "GDP","type": "quantitative","format": ",.2f"},
+            {"field": "Year","type": "quantitative","format": "y"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 5.5,
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  }

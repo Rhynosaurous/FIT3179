@@ -1,32 +1,34 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Deaths by risk factor",
-
-    "width": 700,
-    "height": 500,
-    "params": [{
-        "name": "Year_selection",
-        "value": 2019,
-        "bind": {
-          "input": "range",
-          "min": 1990,
-          "max": 2019,
-          "step": 1,
-          "name": "Year: "
-        }
-      }    
-    ],
-
-    "data" : {"url" : "number-of-deaths-by-risk-factor.csv"},
-    "transform": [{"filter": "datum.year == 2000"}],
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "field": "Country", "type": "ordinal"
-      },
-      "x": {
-        "aggregate": "sum", "field": "Deaths - Cause: All causes - Risk: Outdoor air pollution - OWID - Sex: Both - Age: All Ages (Number)", "type": "quantitative",
-        "axis": {"title": "population"}
-      }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bubble plot showing the correlation between health and income for 187 countries in the world (modified from an example in Lisa Charlotte Rost's blog post 'One Chart, Twelve Charting Libraries' --http://lisacharlotterost.github.io/2016/05/17/one-chart-code/).",
+  "width": 500,"height": 300,
+  "data": {
+    "url": "improvedwsvsgdp.csv"
+  },
+  "params": [{
+    "name": "Year-selection",
+    "value": 2019,
+    "bind": {
+      "input": "range",
+      "min": 1990,
+      "max": 2019,
+      "step": 1,
+      "name": "Year"
     }
+  }],
+  "mark": "circle",
+  "encoding": {
+    "y": {
+      "field": "wat_imp",
+      "type": "quantitative",
+      "scale": {"zero": false},
+      "axis": {"minExtent": 30}
+    },
+    "x": {
+      "field": "GDP per capita, PPP (constant 2017 international $)",
+      "scale": {"type": "log"}
+    },
+    "size": {"field": "Population (historical estimates)", "type": "quantitative"},
+    "color": {"value": "#000"}
   }
+}
