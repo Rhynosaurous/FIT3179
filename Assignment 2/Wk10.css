@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
     font-family: "Helvetica";
+    
 }
 
 header {
@@ -12,20 +13,41 @@ header {
     width: 1467px;
 }
  p {
-     padding-left: 10px;
+     
+     padding-left: 20px;
      font-family: "Helvetica";
      
  }
 
 h2{
     padding-top: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
  div {
      padding-left: 5px;
 
  }
+
+ .first-split-left{
+	width:50%;
+	float:left;
+	height:40vh;
+	border-right: 10vw; 
+    box-sizing: border-box;
+    margin:0;
+    padding:0;	
+    position: relative; top: -50px;
+}
+.first-split-right{
+	width:50%;
+	float:left;
+	height:1vh;
+	margin:0;
+    padding-top: 0px;
+	padding-left:80px;
+  box-sizing: border-box;
+}
 
  .left{
 	width:50%;
@@ -41,7 +63,31 @@ h2{
 	float:left;
 	height:10vh;
 	margin:0;
-    padding-top: 20px;
+    padding-top: 10px;
 	padding-left:80px;
   box-sizing: border-box;
+}
+
+#view{
+    position: relative; left: -60px
+}
+
+#view3{
+    padding-left: 50px;
+    resize: both;
+
+}
+
+#view4{
+    position: relative; left:-60px;
+}
+
+#unsanitary{
+    position: relative; top: -100px;
+    position: relative; left: -35px;
+}
+
+#drinking{
+    padding-left: 20px;
+    width: 90%;
 }
