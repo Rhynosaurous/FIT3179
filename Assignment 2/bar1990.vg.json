@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":"World deaths by risck factor 1990",
+    "description": "A simple bar chart with embedded data.",
+    "data": {
+      "values": [
+        {"a": "Outdoor air pollution", "b": 2254550, "v":"#027373"},{"a": "High systolic blood pressure", "b": 6787715,"v":"#027373"},{"a": "Diet high in sodium", "b": 1320338,"v":"#027373"},
+        {"a": "Diet low in whole grains", "b": 1178222,"v":"#027373"},{"a": "Alcohol use", "b": 1639872,"v":"#027373"},{"a": "Diet low in fruits", "b": 7965603,"v":"#027373"},
+        {"colour":"red","a": "Unsafe water source", "b": 2442071,"v":"#F2E7DC"},{"a": "Secondhand smoke", "b": 1161963,"v":"#027373"},{"a": "Low birth weight", "b": 3033425,"v":"#027373"},
+        {"a": "Child wasting", "b": 3430433,"v":"#027373"},{"a": "Unsafe sex", "b": 429992,"v":"#027373"},{"a": "Diet low in nuts and seeds", "b": 431074,"v":"#027373"},
+        {"a": "Household air pollution from solid fuels", "b": 4358214,"v":"#027373"},{"a": "Diet low in vegetables", "b": 466447,"v":"#027373"},{"a": "Low physical activity", "b": 452167,"v":"#027373"},
+        {"a": "Smoking", "b": 5868490,"v":"#027373"},{"a": "High fasting plasma glucose", "b": 2910089,"v":"#027373"},{"a": "Air pollution", "b": 6501226,"v":"#027373"},
+        {"a": "High body-mass index", "b": 2198130,"v":"#027373"},{"a": "Unsafe sanitation", "b": 1836465,"v":"#027373"},{"a": "No access to handwashing facility", "b": 1200094,"v":"#027373"},
+        {"a": "Drug use", "b": 235888,"v":"#027373"},{"a": "Low bone mineral density", "b": 207367,"v":"#027373"},{"a": "Vitamin A deficiency", "b": 207555,"v":"#027373"},
+        {"a": "Child stunting", "b": 833449,"v":"#027373"},{"a": "Discontinued breastfeeding", "b": 33106,"v":"#027373"},{"a": "Non-exclusive breastfeeding", "b": 505470,"v":"#027373"},
+        {"a": "Iron deficiency", "b": 73461,"v":"#027373"}
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "a", "type": "nominal", "axis": {"labelAngle": -60}, "title":"Risk Factor"},
+      "y": {"field": "b", "type": "quantitative", "title":"Deaths"},
+      "color":{
+          "field": "v",
+          "legend":null
+      },
+    "tooltip": [
+        {"field": "a", "type": "nominal", "title": "Risk Factor"},
+        {"field": "b", "type": "quantitative", "title": "Number of deaths Globally"}
+      ]
+    }
+  }
