@@ -3,28 +3,118 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-</head>
-<body>
-  <p>The visualisation shows the relationship between access to improved water sources versus gross domestic product (GDP) per capita.<p>
-  <p>We see that there is a general link between income and freshwater access.</p>
-  <div id="view"></div>
-  <script>
-    vegaEmbed(
-      '#view',
-      'https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk10%20hw/week10hw.vg.json'
-    );
-  </script>
 
-  <p>-<p>
-  <p>-<p>
-  <p>In the map here we see the share of annual deaths attributed to unsafe water across the world. 
-  <p>In 2017 this ranged from a high of 14% in Chad – around 1-in-7 deaths – to less than 0.01% across most of Europe.<p>
-  <div id="view2"></div>
-  <script> 
-  vegaEmbed(
-  '#view2',
-  'https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk10%20hw/test.vg.json'
-  );
-  </script>
+
+  <link rel="stylesheet" href="Wk10.css">
+
+
+</head>
+
+
+
+<body style="background-color:#95CBFF">
+  <header>
+    <h1>FIT3179 Data Visualisation 2</h1>
+    
+  </header>
+
+
+  <header>
+
+
+    <div class = "first-split-left">
+      <h2>Improved Water?</h2>
+        <div style="height: 15px;"> </div>
+        <p>Improved drinking-water sources are defined as those that are likely to be protected from outside contamination,and from faecal matter in particular. Improved water sources include household connections, public standpipes, boreholes, protected dug wells, protected springs and rainwater collection.</p>
+        <div style="height: 20px;"> </div>
+        <p>Unimproved water sources include unprotected wells, unprotected springs, surface water (e.g. river, dam or lake), vendor-provided water, bottled water (unless water for other uses is available from an improved source) and tanker truck-provided water.</p>
+        <div style="height: 20px;"> </div>
+        <p>According to the WHO/UNICEF joint monitoring programme, basic drinking-water services are defined as drinking water from an improved source, provided that collection time is not more than 30 minutes for a roundtrip, including queuing. Basic sanitation services are defined as use of improved sanitation facilities that are not shared with other households. This is identical to the "improved but not shared" category used in previous reports.</p>
+      </div>
+    
+      <div class = "first-split-right">
+        <img src="https://st4.depositphotos.com/6064568/23999/v/600/depositphotos_239993398-stock-illustration-plastic-pollution-trash-underwater-sea.jpg" id="unsanitary">
+      </div>
+
+
+
+
+
+<div style="height: 300px;"> </div>
+
+  </header>
+
+  <div style="height: 30px;"> </div>
+  <h2>Unsafe water sources are responsible for 1.2 million deaths each year</h2>
+  <p>Unsafe water is one of the world’s largest health and environmental problems – particularly for the poorest in the world.
+    The Global Burden of Disease is a major global study on the causes and risk factors for death and disease published in the medical journal The Lancet.1 These estimates of the annual number of deaths attributed to a wide range of risk factors are shown here. This chart is shown for the global total, but can be explored for any country or region using the “change country” toggle.
+    Lack of access to safe water sources is a leading risk factor for infectious diseases, including cholera, diarrhoea, dysentery, hepatitis A, typhoid and polio.2 It also exacerbates malnutrition, and in particular, childhood stunting. In the chart we see that it ranks as a very important risk factor for death globally.
+    According to the Global Burden of Disease study 1.2 million people died prematurely in 2017 as a result of unsafe water. To put this into context: this was three times the number of homicides in 2017; and equal to the number that died in road accidents globally.</p>
+ 
+    <div class="left">
+    <div style="height: 30px;"> </div>
+    <div id="view3"></div>
+    <script> 
+      vegaEmbed(
+        '#view3',
+        'https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Assignment%202/bar1990.vg.json'
+      );
+    </script>
+
+    <div style="height: 100px;"> </div>
+
+    <h2>Access to improved water sources increases with income </h2>
+    <div style="height: 20px;"> </div>
+    <p>The visualisation shows the relationship between access to improved water sources versus gross domestic product (GDP) per capita.We see that there is a general link between income and freshwater access.</p>
+    <div style="height: 20px;"> </div>
+    <p>Typically most countries with greater than 90% of households with improved water have an average GDP per capita of more than $10,000-15,000. Those at lower incomes tend to have a larger share of the population without access.</p>
+    <div style="height: 20px;"> </div>
+    <p>Although income is an important determinant, the range of levels of access which occur across countries of similar prosperity further support the suggestion that there are other important governance and infrastructural factors which contribute.</p>
+    <div style="height: 50px;"> </div>
+    <img src ="https://media.globalcitizen.org/thumbnails/06/02/060252b9-0d51-48ff-b28f-1f56e9f6dd95/monk_drinking_water_hero.jpg__1600x900_q85_crop_subsampling-2.jpg", id = "drinking">
+    <div style="height: 200px;"> </div>  
+    <div id="view2"></div>
+      
+    <script> 
+      vegaEmbed(
+        '#view2',
+        'https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk10%20hw/test.vg.json'
+      );
+    </script>
+
+    <div style="height: 15px;"> </div>  
+  </div>
+
+  
+  <div class="right">
+
+    <div style="height: 20px;"> </div>
+    <div id="view4"></div>
+    <script> 
+      vegaEmbed(
+        '#view4',
+        'https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Assignment%202/bar2019.vg.json'
+      );
+    </script>
+
+    <div style="height: 120px;"> </div> 
+    <div id="view"></div>
+
+    <script>
+      vegaEmbed(
+        '#view',
+        'https://raw.githubusercontent.com/Rhynosaurous/FIT3179/main/Wk10%20hw/week10hw.vg.json'
+      );
+    </script>
+
+    <div style="height: 85px;"> </div> 
+    <h2>In low-income countries, unsafe water sources account for 6% of deaths</h2>
+    <div style="height: 15px;"> </div> 
+    <p>In the map here we see the share of annual deaths attributed to unsafe water across the world.</p>
+    <p>In 2017 this ranged from a high of 14% in Chad – around 1-in-7 deaths – to less than 0.01% across most of Europe.</p>
+  </div>
+
+
 </body>
+
 
