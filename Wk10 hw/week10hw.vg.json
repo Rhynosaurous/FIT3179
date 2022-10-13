@@ -75,7 +75,7 @@
         "type": "quantitative",
         "title": "Percentage of accessable Improved water (%)",
         "axis": {"tickCount": 20},
-        "scale": {"type": "log", "domain":[20,110]}
+        "scale": {"type": "linear", "domain":[20,110]}
       }
     },
     "layer": [
