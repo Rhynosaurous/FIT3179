@@ -9,7 +9,7 @@
     "height": 500,
     "params": [{
         "name": "Year_selection",
-        "value": 2019,
+        "value": 1990,
         "bind": {
           "input": "range",
           "min": 1990,
